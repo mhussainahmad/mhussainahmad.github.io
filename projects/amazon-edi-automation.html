@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Amazon Vendor Central EDI Automation - AI-powered solution that reduced processing time from 1 week to under 60 seconds. Full-stack AI engineering project by Muhammad Hussain Ahmad.">
+  <meta name="keywords"
+    content="EDI Automation, Amazon Vendor Central, AI Platform, OCR, CRM Automation, Process Automation">
+  <meta name="author" content="Muhammad Hussain Ahmad">
+  <title>Amazon Vendor Central EDI Automation | Muhammad Hussain Ahmad</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script defer src="../theme-toggle.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .project-hero {
+      background: linear-gradient(135deg, var(--primary-color-light) 0%, var(--accent-color-light) 100%);
+      color: white;
+      padding: var(--spacing-12) 0;
+      margin-bottom: var(--spacing-8);
+      text-align: center;
+    }
+
+    body.dark .project-hero {
+      background: linear-gradient(135deg, var(--primary-color-dark) 0%, var(--accent-color-dark) 100%);
+    }
+
+    .project-hero h1 {
+      font-size: var(--font-size-4xl);
+      margin-bottom: var(--spacing-4);
+      font-weight: 700;
+    }
+
+    .project-hero .subtitle {
+      font-size: var(--font-size-xl);
+      opacity: 0.9;
+      margin-bottom: var(--spacing-6);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      color: var(--primary-color-light);
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: var(--spacing-6);
+      transition: color 0.3s ease;
+    }
+
+    body.dark .back-link {
+      color: var(--primary-color-dark);
+    }
+
+    .back-link:hover {
+      color: var(--accent-color-light);
+    }
+
+    body.dark .back-link:hover {
+      color: var(--accent-color-dark);
+    }
+
+    .project-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .stat-card {
+      background: var(--card-bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    body.dark .stat-card {
+      background: var(--card-bg-dark);
+    }
+
+    .stat-number {
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      color: var(--accent-color-light);
+      margin-bottom: var(--spacing-2);
+    }
+
+    body.dark .stat-number {
+      color: var(--accent-color-dark);
+    }
+
+    .stat-label {
+      color: var(--text-color-light);
+      font-weight: 500;
+    }
+
+    body.dark .stat-label {
+      color: var(--text-color-dark);
+    }
+
+    .project-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--spacing-8);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .project-details {
+      background: var(--card-bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      box-shadow: var(--shadow-sm);
+    }
+
+    body.dark .project-details {
+      background: var(--card-bg-dark);
+    }
+
+    .project-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-6);
+    }
+
+    .sidebar-card {
+      background: var(--card-bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      box-shadow: var(--shadow-sm);
+    }
+
+    body.dark .sidebar-card {
+      background: var(--card-bg-dark);
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-2);
+    }
+
+    .tech-item {
+      background: var(--accent-color-light);
+      color: white;
+      padding: var(--spacing-2) var(--spacing-4);
+      border-radius: var(--radius-md);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+    }
+
+    body.dark .tech-item {
+      background: var(--accent-color-dark);
+    }
+
+    .challenge-solution {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .challenge-card, .solution-card {
+      background: var(--card-bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      box-shadow: var(--shadow-sm);
+    }
+
+    body.dark .challenge-card, body.dark .solution-card {
+      background: var(--card-bg-dark);
+    }
+
+    .challenge-card h3 {
+      color: var(--error-color);
+      margin-bottom: var(--spacing-4);
+    }
+
+    .solution-card h3 {
+      color: var(--success-color);
+      margin-bottom: var(--spacing-4);
+    }
+
+    .testimonial-section {
+      background: var(--card-bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      margin-bottom: var(--spacing-8);
+    }
+
+    body.dark .testimonial-section {
+      background: var(--card-bg-dark);
+    }
+
+    .testimonial-text {
+      font-size: var(--font-size-xl);
+      font-style: italic;
+      margin-bottom: var(--spacing-4);
+      color: var(--text-color-light);
+    }
+
+    body.dark .testimonial-text {
+      color: var(--text-color-dark);
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--primary-color-light);
+    }
+
+    body.dark .testimonial-author {
+      color: var(--primary-color-dark);
+    }
+
+    @media (max-width: 768px) {
+      .project-content {
+        grid-template-columns: 1fr;
+      }
+
+      .challenge-solution {
+        grid-template-columns: 1fr;
+      }
+
+      .project-hero h1 {
+        font-size: var(--font-size-3xl);
+      }
+    }
+  </style>
+</head>
+
+<body class="light">
+  <header class="header">
+    <div class="header-content">
+      <div class="profile-info">
+        <h1>Muhammad Hussain Ahmad</h1>
+        <p class="title">Senior AI Engineer & ML Specialist</p>
+        <p class="subtitle">Generative AI • Robotics • Process Automation • Business Intelligence</p>
+      </div>
+      <button id="theme-toggle" aria-label="Toggle dark/light theme">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <a href="../index.html" class="back-link">
+      ← Back to Portfolio
+    </a>
+
+    <div class="project-hero">
+      <h1>Amazon Vendor Central EDI Automation</h1>
+      <p class="subtitle">Revolutionizing EDI Transaction Processing with AI</p>
+    </div>
+
+    <div class="project-stats">
+      <div class="stat-card">
+        <div class="stat-number">99.9%</div>
+        <div class="stat-label">Processing Accuracy</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">60s</div>
+        <div class="stat-label">Processing Time</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">70%</div>
+        <div class="stat-label">Cost Reduction</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Availability</div>
+      </div>
+    </div>
+
+    <div class="project-content">
+      <div class="project-details">
+        <h2>Project Overview</h2>
+        <p>This project involved developing a comprehensive AI-powered automation solution for Amazon Vendor Central EDI (Electronic Data Interchange) transactions. The system revolutionized how the client processed vendor data, reducing manual processing time from one week to under 60 seconds while maintaining 99.9% accuracy.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Intelligent Data Extraction:</strong> Advanced OCR and NLP algorithms to extract and validate vendor information from various document formats</li>
+          <li><strong>Automated Validation:</strong> Real-time validation of EDI data against Amazon's requirements and business rules</li>
+          <li><strong>Error Handling:</strong> Sophisticated error detection and correction mechanisms with human-in-the-loop capabilities</li>
+          <li><strong>Integration:</strong> Seamless integration with existing CRM and ERP systems</li>
+          <li><strong>Reporting:</strong> Comprehensive analytics and reporting dashboard for transaction monitoring</li>
+        </ul>
+
+        <h3>Technical Implementation</h3>
+        <p>The solution was built using a microservices architecture with the following key components:</p>
+        <ul>
+          <li><strong>Document Processing Engine:</strong> Custom-built OCR system using computer vision and deep learning</li>
+          <li><strong>Data Validation Engine:</strong> Rule-based and ML-powered validation system</li>
+          <li><strong>API Gateway:</strong> RESTful APIs for seamless integration with existing systems</li>
+          <li><strong>Database Layer:</strong> Optimized data storage with caching mechanisms</li>
+          <li><strong>Monitoring System:</strong> Real-time monitoring and alerting capabilities</li>
+        </ul>
+      </div>
+
+      <div class="project-sidebar">
+        <div class="sidebar-card">
+          <h3>Role</h3>
+          <p>Full Stack AI Engineer</p>
+          <p>Led the entire project from conception to deployment, including architecture design, development, testing, and client training.</p>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Duration</h3>
+          <p>3 months</p>
+          <p>From initial requirements gathering to production deployment</p>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Team Size</h3>
+          <p>3 developers</p>
+          <p>Including backend, frontend, and DevOps specialists</p>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Technologies Used</h3>
+          <div class="tech-stack">
+            <span class="tech-item">Python</span>
+            <span class="tech-item">OpenCV</span>
+            <span class="tech-item">TensorFlow</span>
+            <span class="tech-item">FastAPI</span>
+            <span class="tech-item">PostgreSQL</span>
+            <span class="tech-item">Redis</span>
+            <span class="tech-item">Docker</span>
+            <span class="tech-item">AWS</span>
+            <span class="tech-item">React</span>
+            <span class="tech-item">TypeScript</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="challenge-solution">
+      <div class="challenge-card">
+        <h3>🚨 Challenges</h3>
+        <ul>
+          <li>Complex EDI format requirements with frequent updates</li>
+          <li>High volume of documents with varying quality and formats</li>
+          <li>Strict accuracy requirements (99.9%+) for financial transactions</li>
+          <li>Integration with legacy systems and multiple data sources</li>
+          <li>Real-time processing requirements with minimal latency</li>
+          <li>Compliance with Amazon's security and data privacy standards</li>
+        </ul>
+      </div>
+
+      <div class="solution-card">
+        <h3>✅ Solutions</h3>
+        <ul>
+          <li>Implemented adaptive OCR with multiple fallback mechanisms</li>
+          <li>Designed robust validation pipeline with confidence scoring</li>
+          <li>Built comprehensive testing framework with 100% test coverage</li>
+          <li>Created flexible integration layer with API-first approach</li>
+          <li>Optimized performance with caching and parallel processing</li>
+          <li>Implemented enterprise-grade security with encryption and audit trails</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="testimonial-section">
+      <blockquote class="testimonial-text">
+        "Muhammad Hussain has been an amazing freelancer to work with. He has a very deep technical knowledge and is very
+        prepared to learn new things rather than saying, I don't know or its too hard. We worked together for many months to
+        really dial in on exactly what was required for the project. Despite our time differences he always seemed contactable
+        in a short amount of time. I am certain we will be using his services again in the future."
+      </blockquote>
+      <p class="testimonial-author">— Client Testimonial</p>
+    </div>
+
+    <div class="project-details">
+      <h2>Results & Impact</h2>
+      <div class="project-stats">
+        <div class="stat-card">
+          <div class="stat-number">1 Week → 60s</div>
+          <div class="stat-label">Processing Time Reduction</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">99.9%</div>
+          <div class="stat-label">Accuracy Rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">70%</div>
+          <div class="stat-label">Operational Cost Reduction</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+      </div>
+
+      <h3>Business Impact</h3>
+      <ul>
+        <li><strong>Operational Efficiency:</strong> Reduced manual processing time by 99.9%, allowing staff to focus on strategic tasks</li>
+        <li><strong>Cost Savings:</strong> Achieved 70% reduction in operational costs through automation</li>
+        <li><strong>Error Reduction:</strong> Eliminated 95% of manual data entry errors</li>
+        <li><strong>Scalability:</strong> System can handle 10x the original transaction volume</li>
+        <li><strong>Compliance:</strong> Improved compliance with Amazon's EDI requirements</li>
+        <li><strong>ROI:</strong> Achieved 300% ROI within the first 6 months</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Muhammad Hussain Ahmad | AI Engineer & ML Specialist</p>
+      <p>Available for remote opportunities worldwide</p>
+    </div>
+  </footer>
+</body>
+
+</html> 
