@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Enterprise RAG System - Scalable knowledge management solution improving information retrieval by 85%. AI-powered search and retrieval system by Muhammad Hussain Ahmad.">
+  <meta name="keywords"
+    content="RAG System, Vector Database, LangChain, NLP, Knowledge Management, Enterprise AI, Information Retrieval">
+  <meta name="author" content="Muhammad Hussain Ahmad">
+  <title>Enterprise RAG System | Muhammad Hussain Ahmad</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script defer src="../theme-toggle.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .project-hero {
+      background: linear-gradient(135deg, var(--primary-color-light) 0%, var(--accent-color-light) 100%);
+      color: white;
+      padding: var(--spacing-12) 0;
+      margin-bottom: var(--spacing-8);
+      text-align: center;
+    }
+
+    body.dark .project-hero {
+      background: linear-gradient(135deg, var(--primary-color-dark) 0%, var(--accent-color-dark) 100%);
+    }
+
+    .project-hero h1 {
+      font-size: var(--font-size-4xl);
+      margin-bottom: var(--spacing-4);
+      font-weight: 700;
+    }
+
+    .project-hero .subtitle {
+      font-size: var(--font-size-xl);
+      opacity: 0.9;
+      margin-bottom: var(--spacing-6);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      color: var(--primary-color-light);
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: var(--spacing-6);
+      transition: color 0.3s ease;
+    }
+
+    body.dark .back-link {
+      color: var(--primary-color-dark);
+    }
+
+    .back-link:hover {
+      color: var(--accent-color-light);
+    }
+
+    body.dark .back-link:hover {
+      color: var(--accent-color-dark);
+    }
+
+    .project-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .stat-card {
+      background: var(--card-bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    body.dark .stat-card {
+      background: var(--card-bg-dark);
+    }
+
+    .stat-number {
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      color: var(--accent-color-light);
+      margin-bottom: var(--spacing-2);
+    }
+
+    body.dark .stat-number {
+      color: var(--accent-color-dark);
+    }
+
+    .stat-label {
+      color: var(--text-color-light);
+      font-weight: 500;
+    }
+
+    body.dark .stat-label {
+      color: var(--text-color-dark);
+    }
+
+    .project-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--spacing-8);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .project-details {
+      background: var(--card-bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      box-shadow: var(--shadow-sm);
+    }
+
+    body.dark .project-details {
+      background: var(--card-bg-dark);
+    }
+
+    .project-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-6);
+    }
+
+    .sidebar-card {
+      background: var(--card-bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      box-shadow: var(--shadow-sm);
+    }
+
+    body.dark .sidebar-card {
+      background: var(--card-bg-dark);
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-2);
+    }
+
+    .tech-item {
+      background: var(--accent-color-light);
+      color: white;
+      padding: var(--spacing-2) var(--spacing-4);
+      border-radius: var(--radius-md);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+    }
+
+    body.dark .tech-item {
+      background: var(--accent-color-dark);
+    }
+
+    .system-architecture {
+      background: var(--card-bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: var(--spacing-8);
+    }
+
+    body.dark .system-architecture {
+      background: var(--card-bg-dark);
+    }
+
+    .architecture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-6);
+      margin-top: var(--spacing-4);
+    }
+
+    .arch-component {
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-4);
+      border-left: 4px solid var(--accent-color-light);
+    }
+
+    body.dark .arch-component {
+      background: rgba(59, 130, 246, 0.2);
+      border-left-color: var(--accent-color-dark);
+    }
+
+    .arch-component h4 {
+      color: var(--primary-color-light);
+      margin-bottom: var(--spacing-2);
+      font-weight: 600;
+    }
+
+    body.dark .arch-component h4 {
+      color: var(--primary-color-dark);
+    }
+
+    .testimonial-section {
+      background: var(--card-bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      margin-bottom: var(--spacing-8);
+    }
+
+    body.dark .testimonial-section {
+      background: var(--card-bg-dark);
+    }
+
+    .testimonial-text {
+      font-size: var(--font-size-xl);
+      font-style: italic;
+      margin-bottom: var(--spacing-4);
+      color: var(--text-color-light);
+    }
+
+    body.dark .testimonial-text {
+      color: var(--text-color-dark);
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--primary-color-light);
+    }
+
+    body.dark .testimonial-author {
+      color: var(--primary-color-dark);
+    }
+
+    @media (max-width: 768px) {
+      .project-content {
+        grid-template-columns: 1fr;
+      }
+
+      .architecture-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-hero h1 {
+        font-size: var(--font-size-3xl);
+      }
+    }
+  </style>
+</head>
+
+<body class="light">
+  <header class="header">
+    <div class="header-content">
+      <div class="profile-info">
+        <h1>Muhammad Hussain Ahmad</h1>
+        <p class="title">Senior AI Engineer & ML Specialist</p>
+        <p class="subtitle">Generative AI • Robotics • Process Automation • Business Intelligence</p>
+      </div>
+      <button id="theme-toggle" aria-label="Toggle dark/light theme">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <a href="../index.html" class="back-link">
+      ← Back to Portfolio
+    </a>
+
+    <div class="project-hero">
+      <h1>Enterprise RAG System</h1>
+      <p class="subtitle">Intelligent Knowledge Management & Information Retrieval</p>
+    </div>
+
+    <div class="project-stats">
+      <div class="stat-card">
+        <div class="stat-number">85%</div>
+        <div class="stat-label">Retrieval Improvement</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2.3s</div>
+        <div class="stat-label">Average Response Time</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10M+</div>
+        <div class="stat-label">Documents Indexed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">99.2%</div>
+        <div class="stat-label">Query Accuracy</div>
+      </div>
+    </div>
+
+    <div class="project-content">
+      <div class="project-details">
+        <h2>Project Overview</h2>
+        <p>Designed and deployed a comprehensive Retrieval-Augmented Generation (RAG) system for enterprise knowledge management. The system enables intelligent search and retrieval across vast document repositories, providing accurate and contextual responses to user queries while maintaining enterprise-grade security and scalability.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Intelligent Document Processing:</strong> Advanced NLP pipeline for document parsing, chunking, and semantic indexing</li>
+          <li><strong>Vector Search Engine:</strong> High-performance vector database with similarity search and semantic matching</li>
+          <li><strong>Context-Aware Retrieval:</strong> Multi-stage retrieval pipeline with re-ranking and context enhancement</li>
+          <li><strong>Real-time Indexing:</strong> Continuous document ingestion and indexing with minimal latency</li>
+          <li><strong>Security & Access Control:</strong> Role-based access control and document-level security</li>
+          <li><strong>Analytics Dashboard:</strong> Comprehensive analytics for usage patterns and system performance</li>
+        </ul>
+
+        <h3>Technical Implementation</h3>
+        <p>The system architecture consists of several interconnected components:</p>
+        <ul>
+          <li><strong>Document Processing Pipeline:</strong> Automated extraction, cleaning, and chunking of documents</li>
+          <li><strong>Embedding Generation:</strong> State-of-the-art sentence transformers for semantic embeddings</li>
+          <li><strong>Vector Database:</strong> Optimized vector storage with efficient similarity search</li>
+          <li><strong>Query Processing:</strong> Intelligent query understanding and expansion</li>
+          <li><strong>Response Generation:</strong> LLM-powered response synthesis with source attribution</li>
+          <li><strong>API Gateway:</strong> RESTful APIs with authentication and rate limiting</li>
+        </ul>
+      </div>
+
+      <div class="project-sidebar">
+        <div class="sidebar-card">
+          <h3>Role</h3>
+          <p>AI Architect</p>
+          <p>Led the entire system design and implementation, from architecture planning to deployment and optimization.</p>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Duration</h3>
+          <p>6 months</p>
+          <p>From initial architecture design to production deployment and optimization</p>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Team Size</h3>
+          <p>4 developers</p>
+          <p>Including backend, frontend, DevOps, and data engineers</p>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Technologies Used</h3>
+          <div class="tech-stack">
+            <span class="tech-item">Python</span>
+            <span class="tech-item">LangChain</span>
+            <span class="tech-item">Pinecone</span>
+            <span class="tech-item">OpenAI</span>
+            <span class="tech-item">FastAPI</span>
+            <span class="tech-item">PostgreSQL</span>
+            <span class="tech-item">Redis</span>
+            <span class="tech-item">Docker</span>
+            <span class="tech-item">Kubernetes</span>
+            <span class="tech-item">AWS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="system-architecture">
+      <h2>System Architecture</h2>
+      <div class="architecture-grid">
+        <div class="arch-component">
+          <h4>📄 Document Ingestion</h4>
+          <p>Automated processing of various document formats (PDF, DOC, TXT, HTML) with metadata extraction and content cleaning.</p>
+        </div>
+        <div class="arch-component">
+          <h4>🧠 Embedding Generation</h4>
+          <p>Semantic embedding generation using advanced transformer models with optimized chunking strategies.</p>
+        </div>
+        <div class="arch-component">
+          <h4>🔍 Vector Search</h4>
+          <p>High-performance similarity search with hybrid retrieval combining dense and sparse vectors.</p>
+        </div>
+        <div class="arch-component">
+          <h4>🤖 LLM Integration</h4>
+          <p>Context-aware response generation with source attribution and confidence scoring.</p>
+        </div>
+        <div class="arch-component">
+          <h4>🔐 Security Layer</h4>
+          <p>Enterprise-grade security with encryption, access control, and audit logging.</p>
+        </div>
+        <div class="arch-component">
+          <h4>📊 Analytics Engine</h4>
+          <p>Real-time analytics and monitoring for system performance and user behavior insights.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-section">
+      <blockquote class="testimonial-text">
+        "Excellent expertise. Worked very well in an agile setup and delivered exceptional results. The RAG system has transformed how our organization accesses and utilizes knowledge, significantly improving productivity and decision-making capabilities."
+      </blockquote>
+      <p class="testimonial-author">— Client Testimonial</p>
+    </div>
+
+    <div class="project-details">
+      <h2>Technical Challenges & Solutions</h2>
+      
+      <h3>🚨 Key Challenges</h3>
+      <ul>
+        <li><strong>Scale & Performance:</strong> Handling millions of documents with sub-second response times</li>
+        <li><strong>Data Quality:</strong> Processing diverse document formats with varying quality and structure</li>
+        <li><strong>Semantic Understanding:</strong> Achieving accurate semantic matching across domain-specific terminology</li>
+        <li><strong>Security Requirements:</strong> Implementing enterprise-grade security while maintaining performance</li>
+        <li><strong>Integration Complexity:</strong> Seamless integration with existing enterprise systems and workflows</li>
+        <li><strong>Cost Optimization:</strong> Balancing performance with operational costs for large-scale deployment</li>
+      </ul>
+
+      <h3>✅ Innovative Solutions</h3>
+      <ul>
+        <li><strong>Hybrid Retrieval:</strong> Combined dense and sparse retrieval for optimal accuracy and speed</li>
+        <li><strong>Adaptive Chunking:</strong> Dynamic document chunking based on content structure and semantics</li>
+        <li><strong>Query Expansion:</strong> Intelligent query understanding with domain-specific expansion</li>
+        <li><strong>Caching Strategy:</strong> Multi-level caching for frequently accessed content and queries</li>
+        <li><strong>Security Architecture:</strong> Zero-trust security model with encryption at rest and in transit</li>
+        <li><strong>Cost Optimization:</strong> Efficient resource utilization with auto-scaling and load balancing</li>
+      </ul>
+
+      <h2>Results & Impact</h2>
+      <ul>
+        <li><strong>Performance:</strong> Achieved 85% improvement in information retrieval accuracy compared to traditional search</li>
+        <li><strong>Efficiency:</strong> Reduced time to find relevant information from minutes to seconds</li>
+        <li><strong>Scalability:</strong> Successfully handles 10M+ documents with sub-second response times</li>
+        <li><strong>User Satisfaction:</strong> 95% user satisfaction rate with significant productivity improvements</li>
+        <li><strong>Cost Savings:</strong> Reduced manual document search time by 70%, saving thousands of hours annually</li>
+        <li><strong>Knowledge Discovery:</strong> Enabled discovery of previously hidden connections and insights across documents</li>
+      </ul>
+
+      <h3>Business Impact</h3>
+      <ul>
+        <li><strong>Productivity:</strong> Increased employee productivity by 40% through faster information access</li>
+        <li><strong>Decision Making:</strong> Improved decision-making quality with comprehensive information retrieval</li>
+        <li><strong>Knowledge Retention:</strong> Better preservation and utilization of organizational knowledge</li>
+        <li><strong>Compliance:</strong> Enhanced compliance through better document tracking and audit trails</li>
+        <li><strong>Innovation:</strong> Facilitated innovation through better knowledge sharing and discovery</li>
+        <li><strong>ROI:</strong> Achieved 400% ROI within the first year of deployment</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Muhammad Hussain Ahmad | AI Engineer & ML Specialist</p>
+      <p>Available for remote opportunities worldwide</p>
+    </div>
+  </footer>
+</body>
+
+</html> 
