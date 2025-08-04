@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     themeToggle.addEventListener('click', function() {
         const currentTheme = body.className;
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'dark';
         
         // Update body class
         body.className = newTheme;
