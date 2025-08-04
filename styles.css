@@ -2,22 +2,22 @@
   /* Light theme colors */
   --bg-color-light: #ffffff;
   --text-color-light: #1a1a1a;
-  --primary-color-light: #2563eb;
-  --secondary-color-light: #64748b;
-  --accent-color-light: #3b82f6;
+  --primary-color-light: #108A00;
+  --secondary-color-light: #108A00;
+  --accent-color-light: #108A00;
   --border-color-light: #e2e8f0;
   --card-bg-light: #f8fafc;
   --header-bg-light: #f1f5f9;
   
   /* Dark theme colors */
-  --bg-color-dark: #0f172a;
-  --text-color-dark: #f1f5f9;
-  --primary-color-dark: #60a5fa;
-  --secondary-color-dark: #94a3b8;
-  --accent-color-dark: #3b82f6;
-  --border-color-dark: #334155;
-  --card-bg-dark: #1e293b;
-  --header-bg-dark: #1e293b;
+  --bg-color-dark: #0a0a0a;
+  --text-color-dark: #ffffff;
+  --primary-color-dark: #108A00;
+  --secondary-color-dark: #108A00;
+  --accent-color-dark: #108A00;
+  --border-color-dark: #1a1a1a;
+  --card-bg-dark: #111111;
+  --header-bg-dark: #0d0d0d;
   
   /* Common colors */
   --success-color: #10b981;
@@ -194,11 +194,11 @@ section h2::after {
   left: 0;
   width: 60px;
   height: 2px;
-  background: var(--accent-color-light);
+  background: var(--primary-color-light);
 }
 
 body.dark section h2::after {
-  background: var(--accent-color-dark);
+  background: var(--primary-color-dark);
 }
 
 /* Contact Section */
@@ -208,10 +208,12 @@ body.dark section h2::after {
   padding: var(--spacing-6);
   margin-bottom: var(--spacing-8);
   box-shadow: var(--shadow-sm);
+  border: 2px solid var(--primary-color-light);
 }
 
 body.dark .contact-section {
   background: var(--card-bg-dark);
+  border-color: var(--primary-color-dark);
 }
 
 .contact-grid {
@@ -230,7 +232,7 @@ body.dark .contact-section {
 }
 
 .contact-item:hover {
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(16, 138, 0, 0.1);
 }
 
 .contact-icon {
@@ -249,11 +251,11 @@ body.dark .contact-item a {
 }
 
 .contact-item a:hover {
-  color: var(--accent-color-light);
+  color: var(--primary-color-light);
 }
 
 body.dark .contact-item a:hover {
-  color: var(--accent-color-dark);
+  color: var(--primary-color-dark);
 }
 
 /* Skills Section */
@@ -269,10 +271,12 @@ body.dark .contact-item a:hover {
   padding: var(--spacing-6);
   box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--primary-color-light);
 }
 
 body.dark .skill-category {
   background: var(--card-bg-dark);
+  border-color: var(--primary-color-dark);
 }
 
 .skill-category:hover {
@@ -313,12 +317,12 @@ body.dark .skill-category li {
   content: '▹';
   position: absolute;
   left: 0;
-  color: var(--accent-color-light);
+  color: var(--primary-color-light);
   font-weight: bold;
 }
 
 body.dark .skill-category li::before {
-  color: var(--accent-color-dark);
+  color: var(--primary-color-dark);
 }
 
 /* Experience Section */
@@ -371,7 +375,7 @@ body.dark .company {
 }
 
 .duration {
-  background: var(--accent-color-light);
+  background: var(--primary-color-light);
   color: white;
   padding: var(--spacing-1) var(--spacing-3);
   border-radius: var(--radius-md);
@@ -380,7 +384,7 @@ body.dark .company {
 }
 
 body.dark .duration {
-  background: var(--accent-color-dark);
+  background: var(--primary-color-dark);
 }
 
 .achievements {
@@ -402,13 +406,13 @@ body.dark .achievements li {
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--accent-color-light);
+  color: var(--primary-color-light);
   font-weight: bold;
   font-size: var(--font-size-lg);
 }
 
 body.dark .achievements li::before {
-  color: var(--accent-color-dark);
+  color: var(--primary-color-dark);
 }
 
 /* Projects Section */
@@ -435,7 +439,7 @@ body.dark .achievements li::before {
   padding: var(--spacing-6);
   box-shadow: var(--shadow-sm);
   transition: box-shadow 0.3s ease;
-  border: 1px solid var(--border-color-light);
+  border: 1px solid var(--primary-color-light);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -443,7 +447,7 @@ body.dark .achievements li::before {
 
 body.dark .project-card {
   background: var(--card-bg-dark);
-  border-color: var(--border-color-dark);
+  border-color: var(--primary-color-dark);
 }
 
 .project-card-link:hover .project-card {
@@ -466,7 +470,7 @@ body.dark .project-header h3 {
 }
 
 .project-role {
-  background: var(--accent-color-light);
+  background: var(--primary-color-light);
   color: white;
   padding: var(--spacing-1) var(--spacing-3);
   border-radius: var(--radius-md);
@@ -475,7 +479,7 @@ body.dark .project-header h3 {
 }
 
 body.dark .project-role {
-  background: var(--accent-color-dark);
+  background: var(--primary-color-dark);
 }
 
 .project-description {
@@ -496,22 +500,24 @@ body.dark .project-description {
 }
 
 .tech-tag {
-  background: var(--border-color-light);
-  color: var(--text-color-light);
+  background: transparent;
+  color: var(--primary-color-light);
   padding: var(--spacing-1) var(--spacing-3);
   border-radius: var(--radius-md);
   font-size: var(--font-size-sm);
   font-weight: 500;
+  border: 1px solid var(--primary-color-light);
 }
 
 body.dark .tech-tag {
-  background: var(--border-color-dark);
-  color: var(--text-color-dark);
+  background: transparent;
+  color: var(--primary-color-dark);
+  border-color: var(--primary-color-dark);
 }
 
 .testimonial {
-  background: rgba(59, 130, 246, 0.1);
-  border-left: 4px solid var(--accent-color-light);
+  background: rgba(16, 138, 0, 0.1);
+  border-left: 4px solid var(--primary-color-light);
   padding: var(--spacing-4);
   border-radius: var(--radius-md);
   font-style: italic;
@@ -520,8 +526,8 @@ body.dark .tech-tag {
 }
 
 body.dark .testimonial {
-  background: rgba(59, 130, 246, 0.2);
-  border-left-color: var(--accent-color-dark);
+  background: rgba(16, 138, 0, 0.2);
+  border-left-color: var(--primary-color-dark);
   color: var(--text-color-dark);
 }
 
@@ -610,10 +616,12 @@ body.dark .certifications li {
   padding: var(--spacing-6);
   box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--primary-color-light);
 }
 
 body.dark .achievement-item {
   background: var(--card-bg-dark);
+  border-color: var(--primary-color-dark);
 }
 
 .achievement-item:hover {
@@ -625,12 +633,12 @@ body.dark .achievement-item {
   display: block;
   font-size: var(--font-size-3xl);
   font-weight: 700;
-  color: var(--accent-color-light);
+  color: var(--primary-color-light);
   margin-bottom: var(--spacing-2);
 }
 
 body.dark .achievement-number {
-  color: var(--accent-color-dark);
+  color: var(--primary-color-dark);
 }
 
 .achievement-text {
