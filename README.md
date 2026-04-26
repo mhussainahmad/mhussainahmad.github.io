@@ -1,6 +1,6 @@
-# M Hussain Ahmad - Portfolio
+# mhussainahmad.github.io
 
-Personal portfolio website showcasing AI & Automation Systems Engineering work.
+Personal site of Muhammad Hussain Ahmad. Static Next.js site deployed to GitHub Pages.
 
 ## Getting Started
 
