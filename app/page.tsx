@@ -1,28 +1,38 @@
+import { SiteNav } from "@/components/researcher/SiteNav";
 import { Header } from "@/components/researcher/Header";
 import { Section } from "@/components/researcher/Section";
 import { About } from "@/components/researcher/About";
-import { Projects } from "@/components/researcher/Projects";
+import { Interests } from "@/components/researcher/Interests";
+import { Experience } from "@/components/researcher/Experience";
+import { Education } from "@/components/researcher/Education";
 import { Skills } from "@/components/researcher/Skills";
+import { Projects } from "@/components/researcher/Projects";
 import { Footer } from "@/components/researcher/Footer";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-[44rem] px-5 sm:px-6 py-10 sm:py-16">
-      <Header />
-
-      <Section title="About" spacing="md">
+    <div className="min-h-svh w-full bg-background">
+      <SiteNav />
+      <main className="mx-auto w-full max-w-[48rem] px-5 pt-20 pb-12 sm:px-8 sm:pt-16 sm:pb-16">
+        <Header />
+        <Separator className="my-8" />
         <About />
-      </Section>
-
-      <Section title="Selected projects">
+        <Section title="Research Interest" spacing="lg">
+          <Interests />
+        </Section>
+        <Section title="Experience" spacing="lg">
+          <Experience />
+        </Section>
+        <Section title="Education" spacing="lg">
+          <Education />
+        </Section>
+        <Section title="Skills" spacing="lg">
+          <Skills />
+        </Section>
         <Projects />
-      </Section>
-
-      <Section title="Skills">
-        <Skills />
-      </Section>
-
-      <Footer />
-    </main>
+        <Footer />
+      </main>
+    </div>
   );
 }

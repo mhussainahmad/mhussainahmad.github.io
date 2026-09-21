@@ -1,35 +1,38 @@
-type Group = { label: string; items: string[] };
+import { Badge } from "@/components/ui/badge";
 
-const groups: Group[] = [
-  {
-    label: "Languages",
-    items: ["Python", "C++", "TypeScript"],
-  },
-  {
-    label: "Machine learning",
-    items: ["PyTorch", "OpenCV", "Transformers"],
-  },
-  {
-    label: "Robotics",
-    items: ["ROS", "Gazebo"],
-  },
-  {
-    label: "Tooling",
-    items: ["Docker", "Linux", "Git", "GitHub Actions"],
-  },
+const skills = [
+  "Python",
+  "PyTorch",
+  "ROS 2",
+  "C++",
+  "NVIDIA Isaac Sim",
+  "Intel RealSense D455",
+  "Kinova Gen3",
+  "OpenCV",
+  "MediaPipe",
+  "RGB-D Perception",
+  "3D Pose Estimation",
+  "Sensor Fusion",
+  "Real-Time Control",
+  "Sim-to-Real",
+  "Transformers",
+  "Diffusion Models",
+  "Distributed Training",
+  "GPU Optimization",
+  "Quantization",
+  "Docker",
+  "AWS",
+  "CI/CD",
 ];
 
 export function Skills() {
   return (
-    <dl className="space-y-4">
-      {groups.map((g) => (
-        <div key={g.label} className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-1 sm:gap-6">
-          <dt className="text-[var(--ink-muted)]" style={{ fontStyle: "italic" }}>
-            {g.label}
-          </dt>
-          <dd>{g.items.join(", ")}</dd>
-        </div>
+    <div className="flex flex-wrap gap-2">
+      {skills.map((skill) => (
+        <Badge key={skill} variant="outline" className="font-serif font-normal">
+          {skill}
+        </Badge>
       ))}
-    </dl>
+    </div>
   );
 }
