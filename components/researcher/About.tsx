@@ -2,7 +2,7 @@ import { Emph, Highlight } from "@/components/ui/highlight";
 
 export function About() {
   return (
-    <p className="max-w-[70ch] text-[1.02rem] leading-[1.75]">
+    <p className="text-[1.02rem] leading-[1.75]">
       Hi! I am a <Emph>Machine Learning Engineer</Emph> with 4+ years of
       experience building production ML systems for <Emph>perception</Emph>,{" "}
       <Emph>real-time control</Emph>, and high-performance inference. Strong

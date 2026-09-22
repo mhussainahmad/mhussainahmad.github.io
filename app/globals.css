@@ -129,6 +129,7 @@
   }
   body {
     @apply relative min-h-svh w-full text-foreground text-[17px] leading-[1.7] antialiased;
+    text-align: justify;
     background-color: var(--background);
     background-image:
       radial-gradient(
@@ -141,6 +142,11 @@
         color-mix(in oklab, var(--primary) 6%, transparent),
         transparent 55%
       );
+  }
+  main p,
+  main li,
+  main figcaption {
+    text-align: justify;
   }
   body::before {
     content: "";

@@ -3,7 +3,7 @@ import { Emph, Highlight } from "@/components/ui/highlight";
 export function Interests() {
   return (
     <div className="space-y-4">
-      <p className="max-w-[70ch] leading-[1.75]">
+      <p className="leading-[1.75]">
         My research and engineering work focuses on{" "}
         <Emph>RGB-D perception</Emph>, <Emph>real-time robot control</Emph>,{" "}
         <Emph>sim-to-real transfer</Emph>, and high-performance ML inference.

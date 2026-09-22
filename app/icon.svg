@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Pedestal base -->
+  <rect x="10" y="27" width="12" height="2.5" rx="0.8" fill="#0a66c2"/>
+  <rect x="14" y="23" width="4" height="4.5" rx="0.6" fill="#0a66c2"/>
+  <!-- Shoulder -->
+  <circle cx="16" cy="22" r="2.6" fill="#0a66c2"/>
+  <!-- Upper arm (angled toward top-left) -->
+  <path d="M14.4 20.6 L10.2 12.4 L12.8 11.2 L17 19.6 Z" fill="#0a66c2"/>
+  <!-- Elbow -->
+  <circle cx="11.5" cy="11.5" r="2.2" fill="#0a66c2"/>
+  <!-- Forearm (angled toward top-right) -->
+  <path d="M12.2 10 L17.6 5.2 L19.4 7.2 L13.8 12 Z" fill="#0a66c2"/>
+  <!-- Wrist -->
+  <circle cx="18.2" cy="6" r="1.7" fill="#0a66c2"/>
+  <!-- Gripper -->
+  <path d="M19.4 4.4 L24 2.6 L24.2 4.2 L20.4 5.4 Z" fill="#0a66c2"/>
+  <path d="M19.6 7.6 L24.2 9.4 L24.4 7.8 L20.6 6.6 Z" fill="#0a66c2"/>
+</svg>

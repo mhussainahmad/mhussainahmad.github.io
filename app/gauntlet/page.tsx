@@ -91,7 +91,7 @@ export default function GauntletPage() {
           <h1 className="font-heading text-[2.1rem] font-bold leading-tight tracking-tight sm:text-[2.5rem]">
             Gauntlet
           </h1>
-          <p className="max-w-[70ch] text-[1.05rem] leading-[1.75] text-foreground/90">
+          <p className="text-[1.05rem] leading-[1.75] text-foreground/90">
             An evaluation harness for learned robot policies. It answers one
             question for VLA / diffusion / scripted policies:{" "}
             <Highlight>

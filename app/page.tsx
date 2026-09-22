@@ -22,13 +22,13 @@ export default function Home() {
         <Section title="Experience" spacing="lg">
           <Experience />
         </Section>
-        <Section title="Research Interest" spacing="lg">
-          <Interests />
-        </Section>
         <Section id="publications" title="Publications" spacing="lg">
           <Publications />
         </Section>
         <Projects />
+        <Section title="Research Interest" spacing="lg">
+          <Interests />
+        </Section>
         <Section title="Education" spacing="lg">
           <Education />
         </Section>
