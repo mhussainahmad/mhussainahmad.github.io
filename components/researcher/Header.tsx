@@ -91,7 +91,7 @@ export function Header() {
 
       <Avatar className="size-28 shrink-0 sm:size-32">
         <AvatarImage
-          src="https://avatars.githubusercontent.com/u/68985613?v=4"
+          src="/profile.jpg"
           alt="Muhammad Hussain Ahmad"
         />
         <AvatarFallback className="text-xl">MHA</AvatarFallback>

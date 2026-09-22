@@ -5,6 +5,7 @@ import { About } from "@/components/researcher/About";
 import { Interests } from "@/components/researcher/Interests";
 import { Experience } from "@/components/researcher/Experience";
 import { Education } from "@/components/researcher/Education";
+import { Publications } from "@/components/researcher/Publications";
 import { Skills } from "@/components/researcher/Skills";
 import { Projects } from "@/components/researcher/Projects";
 import { Footer } from "@/components/researcher/Footer";
@@ -18,19 +19,22 @@ export default function Home() {
         <Header />
         <Separator className="my-8" />
         <About />
-        <Section title="Research Interest" spacing="lg">
-          <Interests />
-        </Section>
         <Section title="Experience" spacing="lg">
           <Experience />
         </Section>
+        <Section title="Research Interest" spacing="lg">
+          <Interests />
+        </Section>
+        <Section id="publications" title="Publications" spacing="lg">
+          <Publications />
+        </Section>
+        <Projects />
         <Section title="Education" spacing="lg">
           <Education />
         </Section>
         <Section title="Skills" spacing="lg">
           <Skills />
         </Section>
-        <Projects />
         <Footer />
       </main>
     </div>

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-/** Soft marker wash — use sparingly on the highest-signal phrases. */
+/** Primary-colored emphasis for high-signal phrases. */
 export function Highlight({
   children,
   className,
@@ -10,13 +10,13 @@ export function Highlight({
   className?: string;
 }) {
   return (
-    <mark className={cn("highlight font-semibold text-primary", className)}>
+    <strong className={cn("font-semibold text-primary", className)}>
       {children}
-    </mark>
+    </strong>
   );
 }
 
-/** Colored emphasis without the marker wash. */
+/** Colored emphasis without extra weight beyond semibold. */
 export function Emph({
   children,
   className,

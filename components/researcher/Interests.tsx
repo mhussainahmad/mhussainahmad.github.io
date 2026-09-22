@@ -14,9 +14,10 @@ export function Interests() {
           <a href="/gauntlet" className="inline-link">
             Gauntlet
           </a>{" "}
-          — evaluation harness for VLA / diffusion policies across MuJoCo,
-          Genesis, Isaac Sim, and PyBullet with{" "}
-          <Highlight>axis-wise failure breakdowns</Highlight>
+          — catches silent checkpoint regressions across MuJoCo, Genesis, Isaac
+          Sim, and PyBullet with{" "}
+          <Highlight>axis-wise failure breakdowns</Highlight> over 7
+          perturbation axes
         </li>
         <li>
           Markerless <Emph>RGB-D teleoperation</Emph> and pose-to-joint

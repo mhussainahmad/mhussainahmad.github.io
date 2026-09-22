@@ -1,15 +1,5 @@
-import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
-import {
-  Target,
-  Camera,
-  Move3d,
-  Shield,
-  Sparkles,
-  Brain,
-  Cpu,
-  Code2,
-} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Section } from "@/components/researcher/Section";
@@ -20,20 +10,21 @@ type Project = {
   description: ReactNode;
   tags: string[];
   href: string;
-  icon: LucideIcon;
   details?: ReactNode[];
+  /** When set, title is plain text and this button is shown instead of a linked heading. */
+  cta?: { label: string; href: string };
 };
 
 const projects: Project[] = [
   {
     title: "Gauntlet",
-    icon: Target,
     description: (
       <>
-        Evaluation harness for learned robot policies — answers how a{" "}
-        <Emph>VLA / diffusion / scripted policy</Emph> fails, and whether the
-        latest checkpoint{" "}
-        <Highlight>regressed against the last one</Highlight>.
+        Owned evaluation harness that catches silent checkpoint regressions
+        before deployment by scoring{" "}
+        <Emph>OpenVLA / SmolVLA / diffusion / scripted</Emph> policies behind
+        one adapter and reporting failure rate across{" "}
+        <Highlight>7 perturbation axes</Highlight> instead of aggregate means.
       </>
     ),
     tags: [
@@ -46,30 +37,25 @@ const projects: Project[] = [
       "Python",
     ],
     href: "/gauntlet",
+    cta: { label: "Details", href: "/gauntlet" },
     details: [
       <>
-        Wraps any policy behind a uniform adapter and runs it across
-        parameterized simulator perturbations, producing{" "}
-        <Highlight>axis-wise failure reports</Highlight> instead of aggregate
-        means.
+        Diffs each checkpoint against the last on a fixed benchmark so
+        regressions surface as <Highlight>axis-wise failure reports</Highlight>,
+        not a single success-rate number.
       </>,
       <>
-        Phases 1–3: <Emph>MuJoCo / PyBullet / Genesis / Isaac</Emph> backends,
-        OpenVLA &amp; SmolVLA adapters, drift monitoring, ROS 2, and fleet
-        aggregation.
+        Parallel rollout runner and plugin system over{" "}
+        <Emph>4 simulators</Emph> (MuJoCo, PyBullet, Genesis, Isaac), OpenVLA
+        &amp; SmolVLA adapters, ROS 2 publishing, and{" "}
+        <Highlight>3,678 pytest cases</Highlight> gated per PR on GitHub
+        Actions.
       </>,
-      <>
-        Full write-up with architecture diagrams → open the{" "}
-        <a href="/gauntlet" className="inline-link">
-          Gauntlet page
-        </a>
-        .
-      </>,
+      <>Shipped to PyPI with a full write-up and architecture diagrams.</>,
     ],
   },
   {
     title: "RGB-D Teleoperation Stack",
-    icon: Camera,
     description: (
       <>
         End-to-end markerless RGB-D teleoperation in ROS 2 driving a{" "}
@@ -85,13 +71,14 @@ const projects: Project[] = [
   },
   {
     title: "Constrained Motion Retargeting",
-    icon: Move3d,
     description: (
       <>
         <Emph>CasADi QP retargeter</Emph> with null-space posture shaping that
-        maps noisy wrist estimates to joint commands under anatomical disparity.
-        Benchmarked against TRAC-IK, RelaxedIK, DexPilot, and Cartesian impedance
-        across <Highlight>1,080 trials</Highlight>.
+        cut end-effector tracking error by{" "}
+        <Highlight>43% vs RelaxedIK</Highlight>,{" "}
+        <Highlight>59% vs TRAC-IK</Highlight>, and{" "}
+        <Highlight>71% vs Cartesian impedance</Highlight> across{" "}
+        <Highlight>1,080 trials</Highlight> (also vs DexPilot-style).
       </>
     ),
     tags: ["Optimization", "CasADi", "Inverse Kinematics", "HRI"],
@@ -99,14 +86,15 @@ const projects: Project[] = [
   },
   {
     title: "Genesis Predictive Safety Twin",
-    icon: Shield,
     description: (
       <>
         Predictive safety gate driven by a <Emph>Genesis digital twin</Emph>{" "}
-        running ahead of the physical arm,{" "}
-        <Highlight>halving peak obstacle penetration</Highlight> from 3.82 mm to
-        1.87 mm with no increase in task completion time. Paired with online
-        sim-to-real EKF / moving-horizon correction at control rate.
+        that caught <Highlight>100% of simulated contact events</Highlight> a
+        mean <Highlight>198 ms early</Highlight>, while holding the{" "}
+        <Highlight>10 ms</Highlight> control budget at the 100 ms horizon (
+        <Highlight>6.3 ms median / 8.0 ms p99</Highlight>). Online EKF /
+        moving-horizon correction keeps residual{" "}
+        <Highlight>≤ 0.57 mrad</Highlight> after payload changes.
       </>
     ),
     tags: ["Genesis", "Sim-to-Real", "Safety", "Digital Twin"],
@@ -114,7 +102,6 @@ const projects: Project[] = [
   },
   {
     title: "Stable Diffusion XL Inference",
-    icon: Sparkles,
     description: (
       <>
         Production PyTorch inference optimization for SDXL at Wombo: cut
@@ -128,7 +115,6 @@ const projects: Project[] = [
   },
   {
     title: "Emotion Recognition (CNN + ViT)",
-    icon: Brain,
     description: (
       <>
         Hybrid CNN + Vision Transformer trained on <Emph>1M images</Emph> for
@@ -140,22 +126,6 @@ const projects: Project[] = [
     tags: ["PyTorch", "Transformers", "Computer Vision"],
     href: "https://github.com/mhussainahmad/ClassImbalanceAwareTransformer",
   },
-  {
-    title: "roskortex",
-    icon: Cpu,
-    description:
-      "ROS-based robotics experiments spanning perception, control, and system integration.",
-    tags: ["ROS", "Python", "Robotics"],
-    href: "https://github.com/mhussainahmad/roskortex",
-  },
-  {
-    title: "robotcpp",
-    icon: Code2,
-    description:
-      "C++ utilities and low-level helpers for robotics work where performance matters.",
-    tags: ["C++", "Robotics"],
-    href: "https://github.com/mhussainahmad/robotcpp",
-  },
 ];
 
 export function Projects() {
@@ -163,47 +133,53 @@ export function Projects() {
     <Section id="projects" title="Projects">
       <ol className="space-y-8">
         {projects.map((project, index) => {
-          const Icon = project.icon;
+          const linkProps = project.href.startsWith("http")
+            ? { target: "_blank" as const, rel: "noreferrer" }
+            : {};
+
           return (
             <li key={project.title}>
-              <div className="flex gap-4 sm:gap-5">
-                <div
-                  className="flex size-16 shrink-0 items-center justify-center rounded-md border border-border bg-muted text-primary sm:size-[4.5rem]"
-                  aria-hidden
-                >
-                  <Icon className="size-7 sm:size-8" strokeWidth={1.5} />
-                </div>
-                <div className="min-w-0 flex-1 pt-0.5">
-                  <h3 className="font-heading text-[1.05rem] font-bold leading-snug">
+              <div className="flex items-start justify-between gap-3">
+                <h3 className="min-w-0 font-heading text-[1.05rem] font-bold leading-snug text-foreground">
+                  {project.cta ? (
+                    project.title
+                  ) : (
                     <Button
                       variant="link"
                       className="h-auto px-0 text-[1.05rem] font-bold text-foreground hover:text-primary"
-                      render={
-                        <a
-                          href={project.href}
-                          {...(project.href.startsWith("http")
-                            ? { target: "_blank", rel: "noreferrer" }
-                            : {})}
-                        />
-                      }
+                      render={<a href={project.href} {...linkProps} />}
                     >
                       {project.title}
                     </Button>
-                  </h3>
-                  <p className="mt-1 text-[0.95rem] leading-relaxed text-foreground/90">
-                    {project.description}
-                  </p>
-                  {project.details && (
-                    <ul className="mt-3 list-disc space-y-2 pl-5 text-[0.92rem] leading-relaxed marker:text-primary">
-                      {project.details.map((detail, i) => (
-                        <li key={i}>{detail}</li>
-                      ))}
-                    </ul>
                   )}
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    {project.tags.join(" · ")}
-                  </p>
-                </div>
+                </h3>
+                {project.cta && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="shrink-0 rounded-full border-border bg-background font-serif text-primary shadow-none hover:bg-accent hover:text-accent-foreground"
+                    render={<a href={project.cta.href} />}
+                  >
+                    {project.cta.label}
+                  </Button>
+                )}
+              </div>
+              <p className="mt-1 text-[0.95rem] leading-relaxed text-foreground/90">
+                {project.description}
+              </p>
+              {project.details && (
+                <ul className="mt-3 list-disc space-y-2 pl-5 text-[0.92rem] leading-relaxed marker:text-primary">
+                  {project.details.map((detail, i) => (
+                    <li key={i}>{detail}</li>
+                  ))}
+                </ul>
+              )}
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {project.tags.map((tag) => (
+                  <Badge key={tag} variant="secondary">
+                    {tag}
+                  </Badge>
+                ))}
               </div>
               {index < projects.length - 1 && <Separator className="mt-8" />}
             </li>

@@ -50,23 +50,24 @@
 }
 
 :root {
-  --background: #fefdfc;
+  /* Soft paper mid-tone — not pure white */
+  --background: #e8e6e1;
   --foreground: #1a1a1a;
-  --card: #ffffff;
+  --card: #f2f0eb;
   --card-foreground: #1a1a1a;
-  --popover: #ffffff;
+  --popover: #f2f0eb;
   --popover-foreground: #1a1a1a;
   --primary: #0a66c2;
   --primary-foreground: #ffffff;
-  --secondary: #f0f4f8;
+  --secondary: #ddd9d2;
   --secondary-foreground: #1a1a1a;
-  --muted: #f3f4f6;
+  --muted: #ddd9d2;
   --muted-foreground: #5c6570;
-  --accent: #e8f1fa;
+  --accent: #d6e4f2;
   --accent-foreground: #0a66c2;
   --destructive: #cc272e;
-  --border: #e5e7eb;
-  --input: #e5e7eb;
+  --border: #d0ccc4;
+  --input: #d0ccc4;
   --ring: #0a66c2;
   --chart-1: #0a66c2;
   --chart-2: #3b8ddd;
@@ -74,30 +75,31 @@
   --chart-4: #163a66;
   --chart-5: #0f2744;
   --radius: 0.5rem;
-  --sidebar: #f8fafc;
+  --sidebar: #e2e0da;
   --sidebar-foreground: #1a1a1a;
   --sidebar-primary: #0a66c2;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e8f1fa;
+  --sidebar-accent: #d6e4f2;
   --sidebar-accent-foreground: #0a66c2;
-  --sidebar-border: #e5e7eb;
+  --sidebar-border: #d0ccc4;
   --sidebar-ring: #0a66c2;
 }
 
 .dark {
-  --background: #0f1419;
-  --foreground: #f3f4f6;
-  --card: #1a222c;
-  --card-foreground: #f3f4f6;
-  --popover: #1a222c;
-  --popover-foreground: #f3f4f6;
+  /* Soft charcoal mid-tone — not pure black */
+  --background: #2a2e35;
+  --foreground: #e8eaed;
+  --card: #343941;
+  --card-foreground: #e8eaed;
+  --popover: #343941;
+  --popover-foreground: #e8eaed;
   --primary: #3b8ddd;
   --primary-foreground: #ffffff;
-  --secondary: #243041;
-  --secondary-foreground: #f3f4f6;
-  --muted: #243041;
-  --muted-foreground: #9ca3af;
-  --accent: #1e3a55;
+  --secondary: #3d434d;
+  --secondary-foreground: #e8eaed;
+  --muted: #3d434d;
+  --muted-foreground: #a8b0ba;
+  --accent: #2f445c;
   --accent-foreground: #3b8ddd;
   --destructive: #f07178;
   --border: rgb(255 255 255 / 12%);
@@ -108,11 +110,11 @@
   --chart-3: #6ba8e0;
   --chart-4: #9cc5eb;
   --chart-5: #c5dcf3;
-  --sidebar: #1a222c;
-  --sidebar-foreground: #f3f4f6;
+  --sidebar: #30353d;
+  --sidebar-foreground: #e8eaed;
   --sidebar-primary: #3b8ddd;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1e3a55;
+  --sidebar-accent: #2f445c;
   --sidebar-accent-foreground: #3b8ddd;
   --sidebar-border: rgb(255 255 255 / 12%);
   --sidebar-ring: #3b8ddd;
@@ -126,22 +128,42 @@
     @apply font-serif scroll-smooth;
   }
   body {
-    @apply min-h-svh w-full bg-background text-foreground text-[17px] leading-[1.7] antialiased;
+    @apply relative min-h-svh w-full text-foreground text-[17px] leading-[1.7] antialiased;
+    background-color: var(--background);
+    background-image:
+      radial-gradient(
+        ellipse 90% 55% at 12% -8%,
+        color-mix(in oklab, var(--primary) 9%, transparent),
+        transparent 58%
+      ),
+      radial-gradient(
+        ellipse 70% 50% at 92% 108%,
+        color-mix(in oklab, var(--primary) 6%, transparent),
+        transparent 55%
+      );
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+  }
+  html.dark body::before {
+    opacity: 0.22;
+    mix-blend-mode: soft-light;
+  }
+  body > * {
+    position: relative;
+    z-index: 1;
   }
   a.inline-link {
     @apply text-primary underline-offset-2 transition-colors hover:underline;
-  }
-  mark.highlight,
-  .highlight {
-    background: linear-gradient(
-      transparent 58%,
-      color-mix(in oklab, var(--primary) 32%, white) 58%
-    );
-    color: inherit;
-    padding: 0 0.12em;
-    border-radius: 0.12em;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
   }
 }
 

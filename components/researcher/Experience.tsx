@@ -19,7 +19,7 @@ const roles: Role[] = [
     location: "Winnipeg, Canada",
     bullets: [
       <>
-        Built an end-to-end markerless RGB-D teleoperation stack in{" "}
+        Owned the end-to-end markerless RGB-D teleoperation stack in{" "}
         <Emph>ROS 2</Emph> that drives a <Emph>7-DoF Kinova Gen3</Emph> from
         MediaPipe pose estimation, running at <Highlight>100 Hz</Highlight> with
         a <Highlight>2.59 ms p99</Highlight> control tick over 30,203 live ticks
@@ -27,8 +27,13 @@ const roles: Role[] = [
       </>,
       <>
         Designed a <Emph>CasADi QP retargeter</Emph> with null-space posture
-        shaping; benchmarked against four literature baselines across{" "}
-        <Highlight>1,080 trials</Highlight>.
+        prior that cut end-effector tracking error by{" "}
+        <Highlight>43% vs RelaxedIK</Highlight>,{" "}
+        <Highlight>59% vs TRAC-IK</Highlight>, and{" "}
+        <Highlight>71% vs Cartesian impedance</Highlight> (
+        <Emph>p &lt; 10⁻²⁰</Emph>), evaluated over{" "}
+        <Highlight>1,080 trials</Highlight> against TRAC-IK, RelaxedIK,
+        DexPilot-style, and Cartesian impedance.
       </>,
       <>
         Engineered a camera-only intent channel with dwell-time gating, cutting
@@ -37,19 +42,23 @@ const roles: Role[] = [
         requests.
       </>,
       <>
-        Implemented a predictive safety gate driven by a{" "}
-        <Emph>Genesis digital twin</Emph>,{" "}
-        <Highlight>halving peak obstacle penetration</Highlight> (3.82 mm → 1.87
-        mm) with no cost in task completion time.
+        Caught <Highlight>100% of simulated contact events</Highlight> a mean{" "}
+        <Highlight>198 ms early</Highlight> with a{" "}
+        <Emph>Genesis digital twin</Emph> at a 200 ms horizon, while holding the{" "}
+        <Highlight>10 ms</Highlight> real-time budget at the 100 ms horizon (
+        <Highlight>6.3 ms median / 8.0 ms p99</Highlight>).
       </>,
       <>
-        Developed an online sim-to-real parameter estimator running on the
-        physical arm at <Highlight>0.45 ms / step</Highlight> with{" "}
-        <Emph>0.65 mrad</Emph> joint residual through payload changes.
+        Kept the twin accurate under payload changes with an online
+        sim-to-real EKF on the physical arm at{" "}
+        <Highlight>0.45 ms median / step</Highlight> (448k live steps), holding
+        joint residual at <Highlight>≤ 0.57 mrad</Highlight> after payload add
+        while an offline baseline never recovered.
       </>,
       <>
-        Built torque-mode safety architecture with a reactive chain{" "}
-        <Highlight>halting within 260 ms</Highlight> of a fault.
+        Kept torque-mode interaction fail-safe with a reactive last-resort chain
+        that <Highlight>halts within 260 ms</Highlight> of a fault, behind the
+        predictive twin gate.
       </>,
     ],
   },
@@ -60,10 +69,9 @@ const roles: Role[] = [
     location: "USA (Remote)",
     bullets: [
       <>
-        Optimized PyTorch inference for <Emph>Stable Diffusion XL</Emph>,
-        reducing end-to-end latency from{" "}
-        <Highlight>2.5s → 0.7s</Highlight> through execution-order changes, GPU
-        scheduling, and memory-allocation tuning.
+        Owned PyTorch inference for <Emph>Stable Diffusion XL</Emph>, reducing
+        end-to-end latency from <Highlight>2.5s → 0.7s</Highlight> through
+        execution-order changes, GPU scheduling, and memory-allocation tuning.
       </>,
       <>
         Increased 1024×1024 generation throughput by{" "}
@@ -79,13 +87,15 @@ const roles: Role[] = [
     location: "Remote",
     bullets: [
       <>
-        Reduced production autoregressive model inference latency by{" "}
-        <Highlight>35%</Highlight> using <Emph>INT8 quantization</Emph> and
-        execution-graph optimization while preserving accuracy.
+        Owned production autoregressive inference for Optimization Ventures,
+        cutting latency by <Highlight>35%</Highlight> using{" "}
+        <Emph>INT8 quantization</Emph> and execution-graph optimization while
+        preserving model accuracy.
       </>,
       <>
         Improved serving stability under concurrency by reducing P95 latency
-        variance by <Highlight>40%</Highlight> through execution-path cleanup.
+        variance by <Highlight>40%</Highlight> through execution-path cleanup
+        and removal of redundant ops in the inference pipeline.
       </>,
       <>
         Trained a hybrid CNN + Vision Transformer on <Emph>1M images</Emph> for
