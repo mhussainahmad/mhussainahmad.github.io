@@ -8,6 +8,9 @@ const schools = [
       <>
         <Emph>M.Sc., Mechanical Engineering (Robotics Specialization)</Emph> ·
         Winnipeg, Canada
+        <br />
+        Thesis on real-time torque control, safety supervision, and shared
+        autonomy on a 7-DoF manipulator
       </>
     ),
     period: "May 2024 – Dec 2026 (Expected)",

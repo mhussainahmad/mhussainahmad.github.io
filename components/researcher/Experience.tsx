@@ -13,52 +13,97 @@ type Role = {
 
 const roles: Role[] = [
   {
-    title: "Research Assistant (Robotics & Perception)",
+    title: "Research Assistant (Robot Control & Safety)",
     org: "University of Manitoba",
     period: "May 2024 – Present",
     location: "Winnipeg, Canada",
     bullets: [
       <>
-        Owned the end-to-end markerless RGB-D teleoperation stack in{" "}
-        <Emph>ROS 2</Emph> that drives a <Emph>7-DoF Kinova Gen3</Emph> from
-        MediaPipe pose estimation, running at <Highlight>100 Hz</Highlight> with
-        a <Highlight>2.59 ms p99</Highlight> control tick over 30,203 live ticks
-        against a 10 ms limit, with zero violations.
+        Shipped a <Highlight>1 kHz real-time C++ torque controller</Highlight>{" "}
+        for a <Emph>7-DoF Kinova Gen3</Emph> with cyclic UDP and lock-free
+        state, and implemented effort command handling and per-actuator torque
+        mode switching in Kinova&apos;s <Emph>ros2_control</Emph> plugin.
       </>,
       <>
-        Designed a <Emph>CasADi QP retargeter</Emph> with null-space posture
-        prior that cut end-effector tracking error by{" "}
-        <Highlight>43% vs RelaxedIK</Highlight>,{" "}
-        <Highlight>59% vs TRAC-IK</Highlight>, and{" "}
-        <Highlight>71% vs Cartesian impedance</Highlight> (
-        <Emph>p &lt; 10⁻²⁰</Emph>), evaluated over{" "}
-        <Highlight>1,080 trials</Highlight> against TRAC-IK, RelaxedIK,
-        DexPilot-style, and Cartesian impedance.
+        Resolved a <Highlight>26.7 N·m torque error</Highlight> that no
+        simulation reproduced by finding the Kinova API&apos;s torque sign
+        reversed against the <Emph>URDF and Pinocchio model</Emph>, and traced
+        a 198 ms torque-mode feedback gap to seven blocking mode-set round
+        trips, proving it was not the fall cause with{" "}
+        <Highlight>0.07 N·m torque tracking</Highlight>.
+      </>,
+      <>
+        Built and tuned a <Highlight>200 Hz Cartesian impedance controller</Highlight>{" "}
+        on hardware with gravity and friction <Emph>feedforward</Emph>,
+        null-space regulation, barrier terms in joint and task space, and 12 Hz
+        torque filtering.
+      </>,
+      <>
+        Designed the <Emph>actuator-level safety layer</Emph>, with torque
+        saturation and slew limits inside the 1 kHz loop and a 200 Hz supervisor
+        for E-stop, watchdog, and position-mode handover, and replaced a
+        latched-fault path that free-fell the arm{" "}
+        <Highlight>7.45 degrees</Highlight> with controlled fault handling.
+      </>,
+      <>
+        Added whole-arm self-collision avoidance over 26 URDF-mesh link pairs
+        with barriers projected through <Emph>Jacobians</Emph> at{" "}
+        <Highlight>0.39 ms p99</Highlight>.
+      </>,
+      <>
+        Identified payloads online with an{" "}
+        <Emph>Extended Kalman Filter</Emph>, 0.96 kg at a 97 mm wrist offset,
+        holding joint residual within <Highlight>0.57 mrad</Highlight> at{" "}
+        0.45 ms median per step over 448k live steps, while an offline baseline
+        never recovered.
+      </>,
+      <>
+        Predicted contact <Highlight>198 ms ahead at 100% TPR</Highlight> with a{" "}
+        <Emph>Genesis digital twin</Emph>, holding the 10 ms real-time budget at
+        the 100 ms horizon (6.3 ms median, 8.0 ms p99).
+      </>,
+      <>
+        Held a 15-node 1 kHz to 100 Hz <Emph>ROS 2</Emph> stack on schedule
+        after the OS denied <Emph>SCHED_FIFO</Emph> by sequencing bring-up
+        around a 250 ms <Emph>DDS discovery</Emph> stall and capping the
+        watchdog below 0.25 s.
+      </>,
+      <>
+        Cut end-effector tracking error <Highlight>57% on average</Highlight>{" "}
+        (43% vs RelaxedIK, 59% vs TRAC-IK, 71% vs Cartesian impedance) over{" "}
+        <Highlight>1,080</Highlight> markerless camera teleoperation trials
+        with a <Emph>CasADi QP-based numerical IK</Emph> retargeter at{" "}
+        <Highlight>2.59 ms p99</Highlight> and zero missed deadlines.
       </>,
       <>
         Engineered a camera-only intent channel with dwell-time gating, cutting
-        false grip activations to <Highlight>0.16 / min</Highlight> across 195
-        minutes by discarding <Highlight>97.3%</Highlight> of 1,323 spurious
-        requests.
+        false grip activations to <Highlight>0.16 per minute</Highlight> across
+        195 minutes by discarding <Highlight>97.3%</Highlight> of 1,323
+        spurious requests.
       </>,
       <>
-        Caught <Highlight>100% of simulated contact events</Highlight> a mean{" "}
-        <Highlight>198 ms early</Highlight> with a{" "}
-        <Emph>Genesis digital twin</Emph> at a 200 ms horizon, while holding the{" "}
-        <Highlight>10 ms</Highlight> real-time budget at the 100 ms horizon (
-        <Highlight>6.3 ms median / 8.0 ms p99</Highlight>).
+        Developed a browser-based (HTML and JavaScript){" "}
+        <Emph>hardware debugging console</Emph> with live torque, tracking,
+        fault, and mode-control telemetry.
+      </>,
+    ],
+  },
+  {
+    title: "Robotics Engineer",
+    org: "Teleworker AI",
+    period: "Feb 2026 – Sep 2026",
+    location: "Winnipeg, Canada",
+    bullets: [
+      <>
+        Operated a <Emph>ROS 2</Emph> scanning pipeline on a{" "}
+        <Emph>Unitree Go2 EDU</Emph>&apos;s onboard Jetson Orin for daily
+        4-hour runs on a construction site, with a Leica BLK360 and Insta360 on
+        a custom 3D-printed mount.
       </>,
       <>
-        Kept the twin accurate under payload changes with an online
-        sim-to-real EKF on the physical arm at{" "}
-        <Highlight>0.45 ms median / step</Highlight> (448k live steps), holding
-        joint residual at <Highlight>≤ 0.57 mrad</Highlight> after payload add
-        while an offline baseline never recovered.
-      </>,
-      <>
-        Kept torque-mode interaction fail-safe with a reactive last-resort chain
-        that <Highlight>halts within 260 ms</Highlight> of a fault, behind the
-        predictive twin gate.
+        Delivered Scan-to-BIM point clouds at{" "}
+        <Highlight>95% export success</Highlight> by clearing robot, sensor,
+        and embedded-compute failures on site.
       </>,
     ],
   },
@@ -70,42 +115,53 @@ const roles: Role[] = [
     bullets: [
       <>
         Owned PyTorch inference for <Emph>Stable Diffusion XL</Emph>, reducing
-        end-to-end latency from <Highlight>2.5s → 0.7s</Highlight> through
-        execution-order changes, GPU scheduling, and memory-allocation tuning.
+        end-to-end latency from <Highlight>2.5 s to 0.7 s</Highlight> with
+        LCM-LoRA, execution-order changes, and GPU scheduling.
       </>,
       <>
-        Increased 1024×1024 generation throughput by{" "}
-        <Highlight>3×</Highlight> via dynamic batching and VRAM optimization,
-        cutting per-step compute time by 30%.
+        Tripled 1024×1024 generation throughput via{" "}
+        <Highlight>dynamic batching and VRAM tuning</Highlight>, cutting
+        per-step compute time by 30%.
+      </>,
+      <>
+        Cut <Emph>Flux</Emph> VRAM from{" "}
+        <Highlight>28 GB to 13 GB</Highlight> with BF16 and TensorRT.
       </>,
     ],
   },
   {
     title: "Freelance Machine Learning Engineer",
     org: "Self-employed",
-    period: "Jan 2022 – Jul 2024",
+    period: "2022 – Jul 2024",
     location: "Remote",
     bullets: [
       <>
-        Owned production autoregressive inference for Optimization Ventures,
-        cutting latency by <Highlight>35%</Highlight> using{" "}
-        <Emph>INT8 quantization</Emph> and execution-graph optimization while
-        preserving model accuracy.
+        Shipped a virtual staging pipeline with <Emph>SDXL</Emph>, ControlNet,
+        and Depth Anything, and cut its Docker builds from{" "}
+        <Highlight>2.5 min to 40 s</Highlight>.
       </>,
       <>
-        Improved serving stability under concurrency by reducing P95 latency
+        Owned production <Emph>Llama 3 8B</Emph> inference for Optimization
+        Ventures, cutting latency by <Highlight>35%</Highlight> with INT8
+        quantization and execution-graph optimization while preserving model
+        accuracy.
+      </>,
+      <>
+        Improved serving stability under concurrency by reducing p95 latency
         variance by <Highlight>40%</Highlight> through execution-path cleanup
         and removal of redundant ops in the inference pipeline.
+      </>,
+      <>
+        Trained a <Emph>Siamese face-verification CNN</Emph> in TensorFlow with
+        L1 distance scoring and a real-time OpenCV webcam verification
+        pipeline.
       </>,
       <>
         Trained a hybrid CNN + Vision Transformer on <Emph>1M images</Emph> for
         7-class emotion recognition, achieving{" "}
         <Highlight>90% top-1 accuracy</Highlight> and improving mAP by 12% over
-        a CNN baseline.
-      </>,
-      <>
-        Improved minority-class F1 scores by <Highlight>18%</Highlight> using
-        focal-loss tuning and targeted augmentation.
+        a CNN baseline, with <Highlight>18%</Highlight> higher minority-class
+        F1 from focal-loss tuning and targeted augmentation.
       </>,
     ],
   },

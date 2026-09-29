@@ -18,7 +18,7 @@ const links = [
   },
   {
     label: "CV",
-    href: "mailto:mhussainahmad@outlook.com?subject=CV%20request",
+    href: "/Muhammad_Hussain_Ahmad_Resume.pdf",
     icon: FileText,
   },
 ];
@@ -77,8 +77,8 @@ export function Header() {
               render={
                 <a
                   href={href}
-                  target={href.startsWith("http") ? "_blank" : undefined}
-                  rel={href.startsWith("http") ? "noreferrer" : undefined}
+                  target={href.startsWith("http") || href.endsWith(".pdf") ? "_blank" : undefined}
+                  rel={href.startsWith("http") || href.endsWith(".pdf") ? "noreferrer" : undefined}
                 />
               }
             >

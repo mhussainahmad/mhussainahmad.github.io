@@ -5,11 +5,20 @@ export function Interests() {
     <div className="space-y-4">
       <p className="leading-[1.75]">
         My research and engineering work focuses on{" "}
-        <Emph>RGB-D perception</Emph>, <Emph>real-time robot control</Emph>,{" "}
-        <Emph>sim-to-real transfer</Emph>, and high-performance ML inference.
-        Recent focus areas include:
+        <Emph>low-level robot control</Emph>, <Emph>robot safety</Emph>,{" "}
+        <Emph>RGB-D perception</Emph>, <Emph>sim-to-real transfer</Emph>, and
+        high-performance ML inference. Recent focus areas include:
       </p>
       <ul className="list-disc space-y-2 pl-5 marker:text-primary">
+        <li>
+          Joint-level and actuator-level <Emph>torque control</Emph> on real
+          hardware: 1 kHz real-time C++, ros2_control integration, and
+          impedance control
+        </li>
+        <li>
+          <Emph>Actuator-level safety</Emph>: torque limits, supervisors,
+          watchdogs, and fault handling that fail safe on the physical robot
+        </li>
         <li>
           <a href="/gauntlet" className="inline-link">
             Gauntlet
@@ -28,8 +37,8 @@ export function Interests() {
           in ROS&nbsp;2
         </li>
         <li>
-          Digital twins and predictive safety with <Emph>Genesis</Emph> / NVIDIA
-          Isaac Sim
+          Digital twins and predictive safety with <Emph>Genesis</Emph> and
+          NVIDIA Isaac Sim
         </li>
         <li>
           <Emph>GPU-optimized inference</Emph> for diffusion and vision models

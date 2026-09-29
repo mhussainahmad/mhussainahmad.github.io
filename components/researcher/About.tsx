@@ -3,15 +3,16 @@ import { Emph, Highlight } from "@/components/ui/highlight";
 export function About() {
   return (
     <p className="text-[1.02rem] leading-[1.75]">
-      Hi! I am a <Emph>Machine Learning Engineer</Emph> with 4+ years of
-      experience building production ML systems for <Emph>perception</Emph>,{" "}
-      <Emph>real-time control</Emph>, and high-performance inference. Strong
-      Python and PyTorch background across RGB-D perception, sensor fusion,
-      transformer and diffusion-based models, distributed training, and GPU
-      optimization. Experienced in simulation-driven validation, large-scale
-      model evaluation, and deploying{" "}
-      <Highlight>perception-to-control pipelines</Highlight> on physical robotic
-      systems.
+      Hi! I am a <Emph>Robotics Control Engineer</Emph> with 4+ years of
+      experience across robotics and AI, delivering{" "}
+      <Emph>low-level control</Emph> at the joint and actuator level on real
+      hardware. I develop and deploy control systems on physical robots, from{" "}
+      <Highlight>1 kHz real-time C++ torque control</Highlight> and state
+      estimation to motion control, safety supervision, and perception-driven
+      manipulation. My core strengths are real-time C++, ROS&nbsp;2 and
+      ros2_control, impedance and torque control, rigid-body dynamics, and
+      robot safety, backed by a production machine learning background in
+      PyTorch, RGB-D perception, and GPU-optimized inference.
     </p>
   );
 }

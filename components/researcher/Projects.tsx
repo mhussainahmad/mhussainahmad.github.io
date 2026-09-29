@@ -55,6 +55,30 @@ const projects: Project[] = [
     ],
   },
   {
+    title: "Real-Time Torque Control on a Kinova Gen3",
+    description: (
+      <>
+        <Highlight>1 kHz real-time C++ torque controller</Highlight> for a{" "}
+        <Emph>7-DoF Kinova Gen3</Emph> over cyclic UDP with lock-free state,
+        integrated through effort command handling and per-actuator torque mode
+        switching in Kinova&apos;s ros2_control plugin. A{" "}
+        <Highlight>200 Hz Cartesian impedance controller</Highlight> and an
+        actuator-level safety layer (torque saturation, slew limits, E-stop,
+        watchdog, and position-mode handover) run on top, tuned and validated
+        on the physical arm.
+      </>
+    ),
+    tags: [
+      "C++",
+      "ros2_control",
+      "Kinova Gen3",
+      "Impedance Control",
+      "Pinocchio",
+      "Real-Time",
+    ],
+    href: "https://www.linkedin.com/in/hussain-ai-robotics/",
+  },
+  {
     title: "RGB-D Teleoperation Stack",
     description: (
       <>
@@ -75,6 +99,7 @@ const projects: Project[] = [
       <>
         <Emph>CasADi QP retargeter</Emph> with null-space posture shaping that
         cut end-effector tracking error by{" "}
+        <Highlight>57% on average</Highlight>:{" "}
         <Highlight>43% vs RelaxedIK</Highlight>,{" "}
         <Highlight>59% vs TRAC-IK</Highlight>, and{" "}
         <Highlight>71% vs Cartesian impedance</Highlight> across{" "}
@@ -92,13 +117,28 @@ const projects: Project[] = [
         that caught <Highlight>100% of simulated contact events</Highlight> a
         mean <Highlight>198 ms early</Highlight>, while holding the{" "}
         <Highlight>10 ms</Highlight> control budget at the 100 ms horizon (
-        <Highlight>6.3 ms median / 8.0 ms p99</Highlight>). Online EKF /
-        moving-horizon correction keeps residual{" "}
-        <Highlight>≤ 0.57 mrad</Highlight> after payload changes.
+        <Highlight>6.3 ms median, 8.0 ms p99</Highlight>). Online EKF and
+        moving-horizon correction keep residual within{" "}
+        <Highlight>0.57 mrad</Highlight> after payload changes, identifying a
+        0.96 kg payload at a 97 mm wrist offset.
       </>
     ),
     tags: ["Genesis", "Sim-to-Real", "Safety", "Digital Twin"],
     href: "https://github.com/mhussainahmad/Genesis",
+  },
+  {
+    title: "Load-Cell Force Sensing (B.S. Capstone)",
+    description: (
+      <>
+        Designed and built a <Highlight>75 kg linear load cell</Highlight>,
+        bonded its strain gauges, and <Emph>calibrated</Emph> it with Arduino,
+        using SolidWorks and ANSYS FEA (134.76 MPa peak stress, 965,000-cycle
+        fatigue life). An S-beam variant was designed and analyzed in
+        simulation.
+      </>
+    ),
+    tags: ["Strain Gauges", "Calibration", "Arduino", "ANSYS", "SolidWorks"],
+    href: "https://www.linkedin.com/in/hussain-ai-robotics/",
   },
   {
     title: "Stable Diffusion XL Inference",
@@ -106,8 +146,8 @@ const projects: Project[] = [
       <>
         Production PyTorch inference optimization for SDXL at Wombo: cut
         end-to-end latency from <Highlight>2.5s to 0.7s</Highlight> and raised
-        1024×1024 throughput by <Highlight>3×</Highlight> via dynamic batching,
-        VRAM tuning, and attention-path improvements.
+        1024×1024 throughput by <Highlight>3×</Highlight> via LCM-LoRA, dynamic
+        batching, VRAM tuning, and attention-path improvements.
       </>
     ),
     tags: ["PyTorch", "Diffusion", "GPU Optimization", "Serving"],

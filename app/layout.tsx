@@ -9,7 +9,7 @@ const lora = Lora({
 });
 
 const description =
-  "Machine Learning Engineer with 4+ years of experience in perception, real-time control, and high-performance inference. M.Sc. Robotics @ University of Manitoba.";
+  "Robotics Control Engineer with 4+ years across robotics and AI, delivering low-level torque control, impedance control, and robot safety on real hardware. M.Sc. Mechanical Engineering @ University of Manitoba.";
 
 export const metadata: Metadata = {
   title: "Muhammad Hussain Ahmad",

@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="mt-16">
       <Separator className="mb-6" />
       <div className="flex flex-col gap-2 text-sm text-muted-foreground sm:flex-row sm:items-baseline sm:justify-between">
-        <span>Last updated April 2026.</span>
+        <span>Last updated September 2026.</span>
         <Button
           variant="link"
           className="h-auto justify-start px-0 text-sm text-primary"
